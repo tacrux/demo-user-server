@@ -6,7 +6,7 @@ Content-Type: application/json
   "password": "p2"
 }
 
-> {% client.global.set("auth_token", response.body.data.loginToken.access_token); %}
+> {% client.global.set("auth_token", response.body.data.token.value); %}
 
 ### delete
 GET http://localhost:8080/demo/delete
