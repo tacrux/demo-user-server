@@ -3,6 +3,7 @@ package pro.wtao.security.demo.security;
 import com.google.common.collect.Sets;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -10,9 +11,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMethod;
+import pro.wtao.framework.security.component.AbstractUserDetailsService;
 import pro.wtao.framework.security.model.LoginUser;
 import pro.wtao.framework.security.model.UriGrantedAuthority;
-import pro.wtao.framework.security.service.AbstractUserDetailsService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -86,6 +87,7 @@ public class UserPasswordUserDetailService extends AbstractUserDetailsService<Us
     }
 
     @Data
+    @EqualsAndHashCode(callSuper = true)
     public static class LoginUserExt extends LoginUser{
         private String extInfo;
     }
