@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import pro.wtao.framework.security.filter.AuthenticationFilter;
+import pro.wtao.security.demo.security.DemoUserVariableContext;
 import pro.wtao.security.demo.security.UsernamePasswordReqVo;
 
 /**
@@ -28,5 +29,10 @@ public class AuthBeans {
     @Bean
     AuthenticationFilter<UsernamePasswordReqVo> usernamePasswordFilter() {
         return new AuthenticationFilter<>("/login/pwd", HttpMethod.POST, UsernamePasswordReqVo.class);
+    }
+
+    @Bean
+    public DemoUserVariableContext demoUserVariableContext() {
+        return new DemoUserVariableContext();
     }
 }
